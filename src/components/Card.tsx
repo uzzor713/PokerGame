@@ -1,13 +1,26 @@
-import React from 'react';
+import { getCardImage } from "../data/cards";
 
 interface CardProps {
-  value: string;
+  value: string; // 牌值
 }
 
 export default function Card({ value }: CardProps) {
+  if (value === "?") {
+    // 卡背
+    return (
+      <img
+        src="/cards/back.png"
+        alt="背面"
+        className="w-28 h-42 object-contain rounded shadow"
+      />
+    );
+  }
+
   return (
-    <div className="w-24 h-36 bg-white text-black flex justify-center items-center rounded shadow">
-      {value}
-    </div>
+    <img
+      src={getCardImage(value)}
+      alt={value}
+      className="w-28 h-42 object-contain rounded shadow"
+    />
   );
 }

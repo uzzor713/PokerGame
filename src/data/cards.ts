@@ -1,7 +1,12 @@
-export const suits = ['♠', '♥', '♦', '♣'];
+export const suits = ['S', 'H', 'D', 'C']; // 黑桃(Spade), 红心(Heart), 方块(Diamond), 梅花(Club)
 export const ranks = ['A','2','3','4','5','6','7','8','9','10','J','Q','K'];
 
 export const deck = suits.flatMap(suit => ranks.map(rank => `${rank}${suit}`));
+
+// 获取牌的图片路径
+export function getCardImage(card: string): string {
+  return `/cards/${card}.svg`;
+}
 
 // 洗牌函数
 export function shuffleDeck(deck: string[]): string[] {
